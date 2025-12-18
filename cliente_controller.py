@@ -15,7 +15,7 @@ def listar_clientes():
     dados_retorno = [dict(zip(cabecalhos, d))for d in dados]
     return jsonify(dados_retorno)
 
-@cliente_bpp.route('/clientes/<int:clienteID>', methods = ['GET'])
+@cliente_bp.route('/clientes/<int:clienteID>', methods = ['GET'])
 def buscar_por_id(clienteID):
     repo = ClienteRepository()
     categoria = repo.find_by_id(clienteID)
@@ -62,4 +62,5 @@ def remover_cliente(id_cliente):
     repo.delete(id_cliente)
     return jsonify({
         "mensagem":"Categoria removida com sucesso"
+
     })
