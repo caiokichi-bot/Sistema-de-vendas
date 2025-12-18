@@ -1,4 +1,4 @@
-import flask
+from flask import Flask
 from categoria_controller import categoria_bp
 from cliente_controller import cliente_bp
 
@@ -9,4 +9,5 @@ app.register_blueprint(cliente_bp)
 
 @app.route('/')
 def home():
+
     return {"status":"API rodando🚀"}
