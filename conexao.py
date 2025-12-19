@@ -9,7 +9,7 @@ class Conexao:
             user = os.getenv("MYSQL_USER"), 
             password = os.getenv("MYSQL_PASSWORD"), 
             database = os.getenv("MYSQL_DATABASE"), 
-            port = os.getenv("MYSQL_PORT")
+            port=int(os.getenv("MYSQL_PORT", 3306)),
             )
 
 
@@ -22,4 +22,5 @@ class Conexao:
     
     def fechar_conexao(self):
         self.__conn.close()
+
         self.__conn.cursor().close()
